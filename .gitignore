@@ -243,6 +243,3 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-
-# Include all SFML components
-!TP2/SFML-2.4.2/*
