@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "menu.h"
+#include "level1.h"
 
 platformer::Game::Game()
 {
@@ -34,6 +35,10 @@ void platformer::Game::run()
 			break;
 		case Scene::MENU:
 			active_scene_ = new Menu( window );
+			current_scene_ = active_scene_->run();
+			break;
+		case Scene::LEVEL1:
+			active_scene_ = new Level1( window );
 			current_scene_ = active_scene_->run();
 			break;
 		}

@@ -26,7 +26,7 @@ void platformer::Menu::input()
 				close();
 				break;
 			case sf::Keyboard::Num1:
-				returned_scene_ = MENU;
+				returned_scene_ = LEVEL1;
 				isRunning = false;
 				break;
 			}
