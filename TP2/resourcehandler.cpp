@@ -2,12 +2,12 @@
 #include "resourcehandler.h"
 #include <windows.h>
 
-ResourceHandler::ResourceHandler()
+platformer::ResourceHandler::ResourceHandler()
 {
 
 }
 
-ResourceHandler::~ResourceHandler()
+platformer::ResourceHandler::~ResourceHandler()
 {
 	for (sf::Texture* texture : textures_)
 	{
@@ -15,7 +15,7 @@ ResourceHandler::~ResourceHandler()
 	}
 }
 
-sf::Texture* ResourceHandler::add_texture(std::string path)
+sf::Texture* platformer::ResourceHandler::add_texture(std::string path)
 {
 	sf::Texture* texture_to_load_ = new sf::Texture;
 	TCHAR pwd[MAX_PATH];

@@ -1,10 +1,17 @@
 #include "stdafx.h"
 #include "level1.h"
 
+
 bool platformer::Level1::init()
 {
+	player_ = new Player(sf::Vector2f(100, 100), 0, resource_handler_.add_texture("ben.png"));
 
 	return true;
+}
+
+platformer::Level1::~Level1()
+{
+	delete player_;
 }
 
 void platformer::Level1::input()
@@ -32,11 +39,29 @@ void platformer::Level1::input()
 
 void platformer::Level1::update(float delta_time)
 {
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		player_->left();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		player_->right();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+		player_->jump();
+	}
+
+	player_->update(delta_time);
 }
 
 void platformer::Level1::draw()
 {
-	window_->clear(sf::Color::Red);
+	window_->clear();
+
+	player_->draw(*window_);
 
 	window_->display();
 }

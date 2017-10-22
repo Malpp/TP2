@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "scene.h"
+#include "player.h"
 
 namespace platformer
 {
@@ -10,12 +11,12 @@ namespace platformer
 		Level1( sf::RenderWindow* window )
 			: Scene( window )
 		{}
-
 		bool init() override;
+		virtual ~Level1();
 		void input() override;
 		void update( float delta_time ) override;
 		void draw() override;
 	private:
-		sf::Sprite ben_sprite_;
+		Player* player_;
 	};
 }
