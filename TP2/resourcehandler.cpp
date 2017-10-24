@@ -18,9 +18,6 @@ platformer::ResourceHandler::~ResourceHandler()
 sf::Texture* platformer::ResourceHandler::add_texture(std::string path)
 {
 	sf::Texture* texture_to_load_ = new sf::Texture;
-	TCHAR pwd[MAX_PATH];
-	GetCurrentDirectory( MAX_PATH, pwd );
-	//MessageBox( NULL, pwd, pwd, 0 );
 	if (!texture_to_load_->loadFromFile( "Assets/" + path ))
 	{
 		delete texture_to_load_;

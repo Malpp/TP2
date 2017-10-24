@@ -8,7 +8,7 @@ namespace platformer
 	public:
 		virtual void delete_();
 		virtual void draw( sf::RenderTarget& window );
-		bool should_delete();
+		bool should_delete() const;
 	protected:
 		Drawable( sf::Vector2f& pos, float angle, sf::Texture* texture );
 		sf::Sprite sprite_;

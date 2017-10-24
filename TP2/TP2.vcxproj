@@ -112,6 +112,7 @@ xcopy /y /d /e  "$(ProjectDir)Assets" "$(OutDir)Assets"</Command>
     <ClInclude Include="gameobject.h" />
     <ClInclude Include="helper.h" />
     <ClInclude Include="level1.h" />
+    <ClInclude Include="map.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="moveable.h" />
     <ClInclude Include="player.h" />
@@ -127,6 +128,7 @@ xcopy /y /d /e  "$(ProjectDir)Assets" "$(OutDir)Assets"</Command>
     <ClCompile Include="gameobject.cpp" />
     <ClCompile Include="level1.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="map.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="moveable.cpp" />
     <ClCompile Include="player.cpp" />

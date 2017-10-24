@@ -5,13 +5,16 @@
 bool platformer::Level1::init()
 {
 	player_ = new Player(sf::Vector2f(100, 100), 0, resource_handler_.add_texture("ben.png"));
-
+	sf::Texture* map_texture = resource_handler_.add_texture( Map::get_texture_string( "1" ) );
+	map_ = new Map( "1", map_texture );
+	map_->load_from_file( "1", map_ );
 	return true;
 }
 
 platformer::Level1::~Level1()
 {
 	delete player_;
+	delete map_;
 }
 
 void platformer::Level1::input()
@@ -61,6 +64,7 @@ void platformer::Level1::draw()
 {
 	window_->clear();
 
+	map_->draw( window_ );
 	player_->draw(*window_);
 
 	window_->display();

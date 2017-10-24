@@ -28,12 +28,12 @@ namespace platformer
 		Game();
 		~Game();
 		void run();
-		static const int GAME_WIDTH = 1920;
-		static const int GAME_HEIGHT = 1080;
-		static const int CAMARA_WIDTH = 1920;
-		static const int CAMERA_HEIGHT = 1080;
-		static const int WINDOW_WIDTH = 1280;
-		static const int WINDOW_HEIGHT = 720;
+		static const int GAME_WIDTH = 256;
+		static const int GAME_HEIGHT = 224;
+		static const int CAMARA_WIDTH = 256;
+		static const int CAMERA_HEIGHT = 224;
+		static const int WINDOW_WIDTH = 768;
+		static const int WINDOW_HEIGHT = 672;
 
 	private:
 		//Template variables

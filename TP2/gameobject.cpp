@@ -25,11 +25,13 @@ void platformer::GameObject::update(float delta_time)
 		}
 	}
 
-	velocity_.y += GRAVITY;
+	velocity_.y += GRAVITY * delta_time;
 
 	velocity_.x = move_speed_ * move_direction_;
 
 	move_direction_ = 0;
+
+	//std::cout << velocity_.y << "\n";
 
 	Moveable::update(delta_time);
 }

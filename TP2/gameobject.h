@@ -15,7 +15,7 @@ namespace platformer
 		void jump();
 
 		const float DRAG = 0.99f;
-		const float GRAVITY = 0.5f;
+		const float GRAVITY = 1000;
 
 	protected:
 		sf::Vector2f velocity_;

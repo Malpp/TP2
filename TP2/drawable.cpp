@@ -11,7 +11,7 @@ void platformer::Drawable::draw(sf::RenderTarget& window)
 	window.draw( sprite_ );
 }
 
-bool platformer::Drawable::should_delete()
+bool platformer::Drawable::should_delete() const
 {
 	return to_delete_;
 }

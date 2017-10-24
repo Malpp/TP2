@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "scene.h"
 #include "player.h"
+#include "map.h"
 
 namespace platformer
 {
@@ -18,5 +19,6 @@ namespace platformer
 		void draw() override;
 	private:
 		Player* player_;
+		Map* map_;
 	};
 }
