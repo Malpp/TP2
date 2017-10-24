@@ -27,7 +27,7 @@ void platformer::Map::draw(sf::RenderWindow* window)
 	}
 }
 
-bool platformer::Map::check_colliion(sf::Vector2f pos)
+bool platformer::Map::check_collision(sf::Vector2f pos)
 {
 	return collision_map_[(int)pos.y][(int)pos.x];
 }

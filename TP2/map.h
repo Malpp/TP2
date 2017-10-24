@@ -9,7 +9,7 @@ namespace platformer
 		Map(int level, sf::Texture* tile_textures);
 		~Map();
 		void draw( sf::RenderWindow* window );
-		bool check_colliion( sf::Vector2f pos );
+		bool check_collision( sf::Vector2f pos );
 		static void load_from_file(std::string level_string, Map* map_to_load);
 		static std::string get_texture_string(std::string level_string);
 		static const int MAP_WIDTH = 32;

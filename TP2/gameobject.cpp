@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "gameobject.h"
 #include "Game.h"
+#include "map.h"
 
 platformer::GameObject::GameObject(const float jump_strength, const float jump_cooldown, const float move_speed, const sf::Vector2f& pos, const float angle, sf::Texture* texture) 
 : Moveable(pos, angle, texture)
@@ -13,7 +14,7 @@ platformer::GameObject::GameObject(const float jump_strength, const float jump_c
 	move_speed_ = move_speed;
 }
 
-void platformer::GameObject::update(float delta_time)
+void platformer::GameObject::update(float delta_time, platformer::Map* map)
 {
 	if(!can_jump_)
 	{
@@ -31,7 +32,7 @@ void platformer::GameObject::update(float delta_time)
 
 	move_direction_ = 0;
 
-	Moveable::update(delta_time);
+	Moveable::update(delta_time, map);
 }
 
 void platformer::GameObject::left()
@@ -91,4 +92,15 @@ void platformer::GameObject::handleEdge()
 		current_pos.y += Game::GAME_HEIGHT + half_texture_size_.y * 2;
 	}
 	sprite_.setPosition(current_pos);
+}
+
+bool platformer::GameObject::check_collision(Map* map)
+{
+	return map->check_collision(sprite_.getPosition());
+}
+
+void platformer::GameObject::handle_collision()
+{
+
+
 }

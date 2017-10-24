@@ -4,11 +4,13 @@
 
 namespace platformer
 {
+	class Map;
+
 	class GameObject : public platform::Moveable
 	{
 	public:
 		GameObject(float jump_strength, float jump_cooldown, float move_speed, const sf::Vector2f& pos, float angle, sf::Texture* texture);
-		void update(float delta_time_) override;
+		void update(float delta_time_, platformer::Map* map) override;
 
 		void left();
 		void right();
@@ -28,5 +30,7 @@ namespace platformer
 		int move_direction_;
 		bool isAtEdge() override;
 		void handleEdge() override;
+		bool check_collision(Map* map) override;
+		void handle_collision() override;
 	};
 }
