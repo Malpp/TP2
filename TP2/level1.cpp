@@ -5,8 +5,8 @@
 bool platformer::Level1::init()
 {
 	player_ = new Player(sf::Vector2f(100, 100), 0, resource_handler_.add_texture("ben.png"));
-	sf::Texture* map_texture = resource_handler_.add_texture( Map::get_texture_string( "1" ) );
-	map_ = new Map( "1", map_texture );
+	sf::Texture* map_texture = resource_handler_.add_texture( "tiles.png" );
+	map_ = new Map( 1, map_texture );
 	map_->load_from_file( "1", map_ );
 	return true;
 }
