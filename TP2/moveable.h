@@ -1,10 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "drawable.h"
-
-namespace platformer {
-	class Map;
-}
+#include "map.h"
 
 namespace platform
 {
@@ -18,7 +15,5 @@ namespace platform
 		virtual sf::Vector2f getNextMove( float delta_time_ ) = 0;
 		virtual bool isAtEdge();
 		virtual void handleEdge();
-		virtual bool check_collision(platformer::Map* map ) = 0;
-		virtual void handle_collision() = 0;
 	};
 }

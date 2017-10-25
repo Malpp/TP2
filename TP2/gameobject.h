@@ -10,8 +10,10 @@ namespace platformer
 	{
 	public:
 		GameObject(float jump_strength, float jump_cooldown, float move_speed, const sf::Vector2f& pos, float angle, sf::Texture* texture);
-		void update(float delta_time_, platformer::Map* map) override;
+		void update(float delta_time, Map* map) override;
 
+
+		void draw(sf::RenderTarget& window) override;
 		void left();
 		void right();
 		void jump();
@@ -30,7 +32,9 @@ namespace platformer
 		int move_direction_;
 		bool isAtEdge() override;
 		void handleEdge() override;
-		bool check_collision(Map* map) override;
-		void handle_collision() override;
+		void map_collisions( Map* map );
+
+		sf::CircleShape debug_location_;
+		sf::RectangleShape debug_rect_location_;
 	};
 }

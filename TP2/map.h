@@ -23,5 +23,7 @@ namespace platformer
 		bool collision_map_[MAP_HEIGHT][MAP_WIDTH];
 		sf::IntRect tile_textures_[MAP_TILES];
 		sf::Sprite map_sprite_;
+		sf::RectangleShape debug_rect_;
+		sf::Vector2f last_pos_;
 	};
 }

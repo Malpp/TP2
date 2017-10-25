@@ -2,15 +2,10 @@
 #include "moveable.h"
 #include "Game.h"
 
-void platform::Moveable::update( float delta_time_, platformer::Map* map )
+void platform::Moveable::update(float delta_time_, platformer::Map* map)
 {
 	sf::Vector2f move_by_pos = getNextMove( delta_time_ ) * delta_time_;
 	sprite_.move( move_by_pos );
-
-	if(check_collision(map))
-	{
-		handle_collision();
-	}
 
 	if(isAtEdge())
 	{

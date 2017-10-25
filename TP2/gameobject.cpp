@@ -12,6 +12,14 @@ platformer::GameObject::GameObject(const float jump_strength, const float jump_c
 	jump_cooldown_ = jump_cooldown;
 	jump_strength_ = jump_strength;
 	move_speed_ = move_speed;
+
+	debug_location_ = sf::CircleShape( 1 );
+	debug_location_.setOrigin( 0.5f, 0.5f );
+
+	debug_rect_location_ = sf::RectangleShape( sf::Vector2f(Map::MAP_PIXEL_SIZE, Map::MAP_PIXEL_SIZE ) );
+	debug_rect_location_.setFillColor( sf::Color::Transparent );
+	debug_rect_location_.setOutlineColor( sf::Color::Yellow );
+	debug_rect_location_.setOutlineThickness( 1 );
 }
 
 void platformer::GameObject::update(float delta_time, platformer::Map* map)
@@ -32,7 +40,20 @@ void platformer::GameObject::update(float delta_time, platformer::Map* map)
 
 	move_direction_ = 0;
 
+	map_collisions( map );
+
 	Moveable::update(delta_time, map);
+}
+
+void platformer::GameObject::draw(sf::RenderTarget& window)
+{
+	//Moveable::draw( window );
+	sf::Vector2f current_pos = sprite_.getPosition();
+	debug_rect_location_.setPosition( (int)(current_pos.x / Map::MAP_PIXEL_SIZE) * Map::MAP_PIXEL_SIZE, (int)(current_pos.y / Map::MAP_PIXEL_SIZE) * Map::MAP_PIXEL_SIZE );
+	debug_location_.setPosition( current_pos );
+	window.draw( debug_rect_location_ );
+	window.draw( debug_location_ );
+
 }
 
 void platformer::GameObject::left()
@@ -94,13 +115,22 @@ void platformer::GameObject::handleEdge()
 	sprite_.setPosition(current_pos);
 }
 
-bool platformer::GameObject::check_collision(Map* map)
+void platformer::GameObject::map_collisions(Map* map)
 {
-	return map->check_collision(sprite_.getPosition());
-}
+	sf::Vector2f current_pos = sprite_.getPosition();
+	current_pos.x += velocity_.x;
+	if(map->check_collision(current_pos))
+	{
+		current_pos.x -= velocity_.x;
+		velocity_.x = 0;
+	}
 
-void platformer::GameObject::handle_collision()
-{
-
+	current_pos.y += velocity_.y;
+	if (map->check_collision( current_pos ))
+	{
+		std::cout << "Collision at: " << current_pos.x << ", " << current_pos.y << "\n";
+		current_pos.y -= velocity_.y;
+		velocity_.y = 0;
+	}
 
 }
